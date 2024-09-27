@@ -1,0 +1,12 @@
+<div *ngIf="reviews.length > 0; else noReviews">
+  <h2>Reviews for {{ productName }}</h2> <!-- Display product name here -->
+  <div *ngFor="let review of reviews" class="review-item">
+    <h3>Rating: {{ review.rating }} Star</h3>
+    <p>{{ review.description }}</p>
+    <mat-divider></mat-divider>
+  </div>
+</div>
+
+<ng-template #noReviews>
+  <p>No reviews for this product yet.</p>
+</ng-template>

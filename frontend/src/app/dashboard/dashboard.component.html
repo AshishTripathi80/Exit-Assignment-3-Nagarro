@@ -1,0 +1,27 @@
+<!-- Banner Section -->
+<div class="banner">
+  <!-- State Info Section -->
+  <div class="state-info">
+    <div class="state-item">
+      <i class="icon globe-icon"></i>
+      <p>{{ totalUsers }}</p>
+      <span>Total User</span>
+    </div>
+    <div class="state-item">
+      <i class="icon posts-icon"></i>
+      <p>{{ totalProducts }}</p>
+      <span>Total Product</span>
+    </div>
+    <div class="state-item">
+      <i class="icon online-icon"></i>
+      <p>{{ onlineUsers }}</p>
+      <span>Online User</span>
+    </div>
+  </div>
+</div>
+
+<!-- Search Section -->
+<div class="search-bar">
+  <input type="text" [(ngModel)]="searchTerm" placeholder="Search for product" />
+  <button (click)="onSearch()"><i class="icon search-icon"> Search</i></button>
+</div>
