@@ -1,7 +1,4 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { ProductService } from '../services/product.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,17 +8,22 @@ import { Router } from '@angular/router';
 })
 export class ProductComponent {
   products: any[] = [];
-  //searchTerm: string = '';
 
-  constructor(
-    private router:Router
-  ) {
+  constructor(private router: Router) {
     const navigation = this.router.getCurrentNavigation();
     this.products = navigation?.extras?.state?.['products'] || [];
   }
 
   ngOnInit(): void {
+    this.processProductImages();
   }
 
-  
+  processProductImages(): void {
+    // Assuming products already have 'byteImg', we process it here
+    this.products.forEach(
+      (product: { processedImg: string; byteImg: string }) => {
+        product.processedImg = 'data:image/jpeg;base64,' + product.byteImg;
+      }
+    );
+  }
 }
